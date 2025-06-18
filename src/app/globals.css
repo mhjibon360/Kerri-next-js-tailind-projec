@@ -1,26 +1,95 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import "../style/allstyle.scss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito", sans-serif;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --color-primary: #E85F78;
+  --color-white: #fff;
+  --color-dark: #212529;
+  --color-dark2: #212121;
+}
+
+/* 
+html.dark {
+  --color-primary: #E85F78;
+  --color-white: #212529;
+  --color-dark: #fff;
+  --color-dark2: #fefefe;
+} */
+
+/* .text-primary {
+  color: var(--color-primary);
+} */
+
+@theme {
+  --font-nunito: "Nunito", sans-serif;
+  --font-montseraat: font-family: "Montserrat", sans-serif;
+  --color-primary: #E85F78;
+  --color-white: #fff;
+  --color-dark: #212529;
+  --color-dark2: #212121;
+}
+
+/* portfolio */
+.portfolio {
+  position: relative;
+  overflow: hidden;
+  transition: .4s all ease;
+}
+
+.overlry {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: black;
+  opacity: .7;
+}
+
+.portfolio-image {
+  height: 300px;
+  width: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hover-content {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  transition: .4s all ease;
+  opacity: 0;
+
+}
+
+.portfolio:hover .hover-content {
+  top: 50%;
+  transition: .4s all ease;
+  opacity: 1;
+}
+
+.portfolio:hover .overlry {
+  height: 100%;
+  transition: .4s all ease;
 }
